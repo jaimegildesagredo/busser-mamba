@@ -8,7 +8,8 @@ require 'busser/runner_plugin'
 #
 class Busser::RunnerPlugin::Mamba < Busser::RunnerPlugin::Base
   postinstall do
-    run!("pip install -e git+git://github.com/nestorsalceda/mamba.git#egg=mamba")
+    run!(
+      "pip install -e git+git://github.com/nestorsalceda/mamba.git#egg=mamba")
   end
 
   def test

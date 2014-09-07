@@ -1,10 +1,18 @@
 language: ruby
 
 rvm:
-- 2.0.0
-- 1.9.3
-- 1.9.2
-- ruby-head
+  - 2.0.0
+  - 1.9.3
+  - 1.9.2
+  - ruby-head
+
+before_install:
+  - sudo apt-get install python-virtualenv
+
+script:
+  - virtualenv .venv
+  - . .venv/bin/activate
+  - bundle exec rake
 
 matrix:
   allow_failures:
