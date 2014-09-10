@@ -27,7 +27,7 @@ module Busser
         requirements_file = File.join(suite_path, 'requirements.txt')
 
         if File.exists?(requirements_file)
-          run!("pip install -r #{requirements_file}")
+          pip_install("-r #{requirements_file}")
         end
 
         run!("mamba #{suite_path}")
