@@ -13,13 +13,13 @@ class Busser::RunnerPlugin::Mamba < Busser::RunnerPlugin::Base
   end
 
   def test
-    mamba_path = suite_path('mamba').to_s
-    requirements_file = File.join(mamba_path, 'requirements.txt')
+    suite_path = suite_path('mamba').to_s
+    requirements_file = File.join(suite_path, 'requirements.txt')
 
     if File.exists?(requirements_file)
       run!("pip install -r #{requirements_file}")
     end
 
-    run!("mamba #{mamba_path}")
+    run!("mamba #{suite_path}")
   end
 end
