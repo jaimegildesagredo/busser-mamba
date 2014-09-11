@@ -35,3 +35,14 @@ Feature: Test command
     1 examples failed of 1 ran
     """
     And the exit status should not be 0
+
+  Scenario: A suite with requirements.txt file
+    Given a file in suite "mamba" named "requirements.txt" with:
+    """
+    expects
+    """
+    When I run `busser test mamba`
+    Then the output should contain:
+    """
+    expects
+    """
