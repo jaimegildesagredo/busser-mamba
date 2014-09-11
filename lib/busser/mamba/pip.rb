@@ -15,7 +15,7 @@ module Busser
 
       def ensure_pip_cmd
         <<-CMD
-        pip || curl https://bootstrap.pypa.io/get-pip.py|python
+        pip --version || curl https://bootstrap.pypa.io/get-pip.py|python
         CMD
       end
 
