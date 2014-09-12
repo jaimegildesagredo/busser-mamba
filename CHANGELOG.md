@@ -1,3 +1,7 @@
+## 0.2.2 / 2014-09-12
+
+* Bugfix installing pip in ruby 1.9.x
+
 ## 0.2.1 / 2014-09-12
 
 * Improved busser/mamba/pip module console feedback
