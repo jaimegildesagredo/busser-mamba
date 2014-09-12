@@ -8,12 +8,12 @@ rvm:
   - ruby-head
 
 before_install:
-  - sudo apt-get install python-virtualenv
+  - sudo pip uninstall -y pip
+  - mkdir -p ~/.pip
+  - echo -e '[install]\nuser = true' > ~/.pip/pip.conf
 
 script:
-  - virtualenv .venv
-  - . .venv/bin/activate
-  - bundle exec rake
+  - PATH=~/.local/bin:$PATH bundle exec rake
 
 matrix:
   allow_failures:
