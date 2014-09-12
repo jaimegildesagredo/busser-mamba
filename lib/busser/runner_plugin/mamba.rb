@@ -19,7 +19,7 @@ module Busser
       postinstall do
         ensure_pip
         pip_install(
-          '-e git+git://github.com/nestorsalceda/mamba.git#egg=mamba')
+          'https://github.com/nestorsalceda/mamba/archive/master.zip')
       end
 
       def test
@@ -30,6 +30,7 @@ module Busser
           pip_install("-r #{requirements_file}")
         end
 
+        info 'Running mamba ...'
         run!("mamba #{suite_path}")
       end
     end
