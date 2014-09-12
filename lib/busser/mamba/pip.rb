@@ -11,11 +11,13 @@ module Busser
 
       def ensure_pip
         if !pip_installed?
+          info '`pip` is not installed, installing ...'
           f = Tempfile.new('busser-mamba', Dir.tmpdir, 'wb+')
           f.write(Net::HTTP.get(URI('https://bootstrap.pypa.io/get-pip.py')))
           f.flush
           run!("python #{f.path}")
           f.close!
+          info '`pip` was successfully installed.'
         end
       end
 
@@ -25,7 +27,9 @@ module Busser
       end
 
       def pip_install(requirements)
-        run!("pip install #{requirements}")
+        cmd = "pip install #{requirements}"
+        info "Running #{cmd} ..."
+        run!(cmd)
       end
     end
   end
